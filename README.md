@@ -2,7 +2,7 @@
 
 This is a part of the lab assignment for the course ECE 277 at UCSD for Winter 2024.
 
-For the Qlearning code refer the agent.cu file in both folders in the this path src->Qagent.
+For the Qlearning code refer the agent.cu file in both folders in this path src->Qagent.
 
 **Core Problem:**
 
@@ -10,9 +10,9 @@ There is a 2D grid with several mines and a flag. Our goal is to catch the flag.
 
 
 
-Description automatically generated](Aspose.Words.fc1c8d3c-4f48-49e4-9446-43e0ee268301.001.png)       
-
-Description automatically generated](Aspose.Words.fc1c8d3c-4f48-49e4-9446-43e0ee268301.002.png)
+Single Agent | Multiagent
+:--------: |:--------:
+![](/Images_/image1.png) |![](/Images_/image2.png)
 
 We have used an asynchronous Q-learning method to obtain the optimal strategy.
 
@@ -21,7 +21,7 @@ We have used an asynchronous Q-learning method to obtain the optimal strategy.
 
 In Q-learning, we find the best series of action based on agent’s current state.
 
-
+![](Images_/image3.png)
 
 The Status is the (x,y) coordinates of the agent.
 
@@ -45,109 +45,74 @@ We use the Epsilon Greedy strategy to choose an action. It is a simple method to
 
 At the start, the epsilon rate is higher, meaning the agent is in exploration mode. While exploring the environment, the epsilon decreases, and agents start to exploit the environment. During exploration, with every iteration, the agent becomes more confident in estimating Q-values.
 
-$$Predicted\ class = \ i^{*}(x) = \begin{matrix}
-argmax \\
-i \\
-\end{matrix}P_{Y|X}\left( i \middle| x \right) = \begin{matrix}
-argmax \\
-i \\
-\end{matrix}P_{X|Y}\left( x \middle| i \right)P_{Y}(i)$$
-
-$$ If\ uniform(0,1) < \epsilon $$ 
-$$ a = \uniform(0, num\ of\ actions)$$
-$$else  $$
-$$a = \begin{matrix}
+If uniform(0,1) < $`\epsilon `$:  
+   $~~~$ a= uniform(0,num of actions)  
+else  
+  $~~~$ $`  a= \begin{matrix}
 max \\
-\alpha^{'} \\ \end{matrix}  Q(S_{n+1}, a^{'})$$  
+\alpha^{'} \\ \end{matrix}  Q(S_{n+1}, a^{'})
+`$  
 
 
 In code, we decrease the epsilon by 0.1 at each episode. 
 
 **Perform Update:**
 
-After each action, we use this function to update the Q table.
+After each action, we use this function to update the Q table.  
 
-QSn,An+=αRn+1+γmaxα'QSn+1,a'-QSn,An, Rn+1=0αRn+1-QSn,An, Rn+1≠0
+$`Q(S_{n},A_{n})=Q(S_{n},A_{n})+\lbrace{\begin{matrix} \alpha(R_{n+1}+\gamma \begin{matrix}
+max \\
+\alpha^{'} \\ \end{matrix} Q(S_{n+1}, a^{'})-Q(S_{n},A_{n}), \ if\ R_{n+1}=0\\
+\alpha(R_{n+1}-Q(S_{n},A_{n}), \ if\ R_{n+1}≠0 \\ \end{matrix}} `$
 
 Where, $R_{n+1}$ is the reward, $S_{n+1}$ is the next state and $S_{n}$ is the current state. $\alpha$ is the learning rate and $\gamma$ is a discount factor.
 
 **Pseudo -Code:**
-
+``` 
 Initialize Qs,a=0,∀s∈S,a∈As
-
 Repeat (for each episode):
-
 Initialize S
-
 Repeat for each step of the episode:
-
-`	`Choose A from current state S using policy derived from Q (Epsilon Greedy)
-
-`	`Take action A
-
-`	`Observe next state S’ and R
-
-`	`Update Q(S,A)
-
-`	`S=S’
-
+ Choose A from current state S using policy derived from Q (Epsilon Greedy)
+ Take action A
+ Observe next state S’ and R
+ Update Q(S,A)
+ S=S’
 Until S is terminal
+```
 
 **Source Code:**
-'''
+``` C
 
-int q\_learningCls::learning(int\* board, unsigned int& episode, unsigned int& steps) {
 
-`    `if (m\_episode == 0 && m\_steps == 0) { // only for first episode
-
-`        `env.reset(m\_sid);
-
-`        `agent.init(); // clear action + init Q table + self initialization
-
-`    `} else {
-
-`        `active\_agent = check\_status(board, env.m\_state, flag\_agent);
-
-`        `if (m\_newepisode) {
-
-`            `env.reset(m\_sid);
-
-`            `agent.init\_episode(); // set all agents in active status
-
-`            `float epsilon = agent.adjust\_epsilon(); // adjust epsilon
-
-`            `m\_steps = 0;
-
-`            `printf("EP=%4d, eps=%4.3f\n", m\_episode, epsilon);
-
-`            `m\_episode++;
-
-`        `} else {
-
-`            `short\* action = agent.action(env.d\_state[m\_sid]);
-
-`            `env.step(m\_sid, action);
-
-`            `agent.update(env.d\_state[m\_sid], env.d\_state[m\_sid ^ 1], env.d\_reward);
-
-`            `m\_sid ^= 1;
-
-`            `episode = m\_episode;
-
-`            `steps = m\_steps;
-
-`        `}
-
-`    `}
-
-`    `m\_steps++;
-
-`    `env.render(board, m\_sid);
-
-`    `return m\_newepisode;
+int q_learningCls::learning(int* board, unsigned int& episode, unsigned int& steps) {
+    if (m_episode == 0 && m_steps == 0) { // only for first episode
+        env.reset(m_sid);
+        agent.init(); // clear action + init Q table + self initialization
+    } else {
+        active_agent = check_status(board, env.m_state, flag_agent);
+        if (m_newepisode) {
+            env.reset(m_sid);
+            agent.init_episode(); // set all agents in active status
+            float epsilon = agent.adjust_epsilon(); // adjust epsilon
+            m_steps = 0;
+            printf("EP=%4d, eps=%4.3f\n", m_episode, epsilon);
+            m_episode++;
+        } else {
+            short* action = agent.action(env.d_state[m_sid]);
+            env.step(m_sid, action);
+            agent.update(env.d_state[m_sid], env.d_state[m_sid ^ 1], env.d_reward);
+            m_sid ^= 1;
+            episode = m_episode;
+            steps = m_steps;
+        }
+    }
+    m_steps++;
+    env.render(board, m_sid);
+    return m_newepisode;
 
 }
-'''
+```
 
 
 
