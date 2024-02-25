@@ -4,7 +4,7 @@ This is a part of the lab assignment for the course ECE 277 at UCSD for Winter 2
 
 For the Qlearning code refer the agent.cu file in both folders in this path src->Qagent.
 
-**Core Problem:**
+## **Core Problem:**
 
 There is a 2D grid with several mines and a flag. Our goal is to catch the flag. For the first part of the project, we have used a single agent in a 4×4 grid with 2 mines. For the second part, we have used 128 agents in a 32×32 grid with 96 mines.
 
@@ -17,7 +17,7 @@ Single Agent | Multiagent
 We have used an asynchronous Q-learning method to obtain the optimal strategy.
 
 
-**Problem Formulation:**
+## **Problem Formulation:**
 
 In Q-learning, we find the best series of action based on agent’s current state.
 
@@ -31,13 +31,13 @@ Action: 0 (right), 1(down), 2(left), 3(up)
 
 The agent will use a Q-table to take the best possible action based on the expected reward for each state in the environment. Here, Q-table is a table of sets of actions and states, and we use the Q-learning algorithm to update the values in the table.
 
-**Initialize:**
+## **Initialize:**
 
 We will initialize the Q-table as zeros. We will build the table with columns based on the number of actions and rows based on the number of states.
 
 All agents start from the (0,0) coordinates at each episode. The episode ends when agent reaches one of mines or flag. The agent becomes inactive after that. For multiagent scenario, when remaining active agents are less than 20% of total agents, the episode restarts.
 
-**Choosing action:**
+## **Choosing action:**
 
 At the start, the agent will choose to take the random action and on the second run, it will use an updated Q-Table to select the action. Choosing an action and performing the action will repeat multiple times until the training loop stops. The first action and state are selected using the Q-Table. 
 
@@ -56,7 +56,7 @@ max \\
 
 In code, we decrease the epsilon by 0.1 at each episode. 
 
-**Perform Update:**
+## **Perform Update:**
 
 After each action, we use this function to update the Q table.  
 
@@ -67,7 +67,7 @@ max \\
 
 Where, $R_{n+1}$ is the reward, $S_{n+1}$ is the next state and $S_{n}$ is the current state. $\alpha$ is the learning rate and $\gamma$ is a discount factor.
 
-**Pseudo -Code:**
+## **Pseudo -Code:**
 ``` 
 Initialize Qs,a=0,∀s∈S,a∈As
 Repeat (for each episode):
@@ -81,7 +81,7 @@ Repeat for each step of the episode:
 Until S is terminal
 ```
 
-**Source Code:**
+## **Source Code:**
 ``` C
 
 
