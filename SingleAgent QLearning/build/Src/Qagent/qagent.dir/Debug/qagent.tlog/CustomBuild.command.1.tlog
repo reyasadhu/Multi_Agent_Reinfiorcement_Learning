@@ -1,0 +1,36 @@
+^H:\LAB2\SRC\QAGENT\AGENT.CU
+setlocal
+cd H:\lab2\build\Src\Qagent\CMakeFiles\qagent.dir
+if %errorlevel% neq 0 goto :cmEnd
+H:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir//Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools/MSVC/14.29.30133/bin/Hostx64/x64" -D build_configuration:STRING=Debug -D generated_file:STRING=H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir//Debug/qagent_generated_agent.cu.obj -D generated_cubin_file:STRING=H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir//Debug/qagent_generated_agent.cu.obj.cubin.txt -P H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir//qagent_generated_agent.cu.obj.Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^H:\LAB2\BUILD\CMAKEFILES\400332965C0525FE20953AAD7AF20B4C\QAGENT_INTERMEDIATE_LINK.OBJ.RULE
+setlocal
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\bin\nvcc.exe" -lnvToolExt -gencode arch=compute_52,code=sm_52 --cudart=static -lineinfo -arch sm_52 -use_fast_math -m64 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools/MSVC/14.29.30133/bin/Hostx64/x64" -dlink H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir//Debug/qagent_generated_agent.cu.obj -o H:/lab2/build/Src/Qagent/CMakeFiles/qagent.dir/Debug/qagent_intermediate_link.obj -Xcompiler /MDd
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^H:\LAB2\SRC\QAGENT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/lab2 -BH:/lab2/build --check-stamp-file H:/lab2/build/Src/Qagent/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

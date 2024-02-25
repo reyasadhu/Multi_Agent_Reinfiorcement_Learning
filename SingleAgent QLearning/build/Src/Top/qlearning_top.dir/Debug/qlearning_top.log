@@ -1,0 +1,5 @@
+﻿qlearning_nxn.lib(qlearning_nxn_generated_main_qlearning.cu.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'qlearning_nxn.lib(qlearning_nxn_generated_main_qlearning.cu.obj)' or at 'H:\lab2\build\Src\Top\Debug\vc140.pdb'; linking object as if no debug info
+qlearning_nxn.lib(qlearning_nxn_generated_qlearning.cu.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'qlearning_nxn.lib(qlearning_nxn_generated_qlearning.cu.obj)' or at 'H:\lab2\build\Src\Top\Debug\vc140.pdb'; linking object as if no debug info
+qlearning_nxn.lib(qlearning_nxn_generated_draw_env.cu.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'qlearning_nxn.lib(qlearning_nxn_generated_draw_env.cu.obj)' or at 'H:\lab2\build\Src\Top\Debug\vc140.pdb'; linking object as if no debug info
+qlearning_nxn.lib(qlearning_nxn_generated_env_mine.cu.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'qlearning_nxn.lib(qlearning_nxn_generated_env_mine.cu.obj)' or at 'H:\lab2\build\Src\Top\Debug\vc140.pdb'; linking object as if no debug info
+  qlearning_top.vcxproj -> H:\lab2\build\Src\Top\Debug\qlearning_top.exe
