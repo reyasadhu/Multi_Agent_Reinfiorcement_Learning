@@ -1,0 +1,10 @@
+^H:\LAB3\THIRDPARTY\LIBLCMS2\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/lab3 -BH:/lab3/build --check-stamp-file H:/lab3/build/thirdparty/liblcms2/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
