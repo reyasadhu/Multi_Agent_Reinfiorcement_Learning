@@ -1,0 +1,29 @@
+﻿  Building Custom Rule H:/lab2/thirdparty/libpthreads/CMakeLists.txt
+  attr.c
+  barrier.c
+  cancel.c
+  cleanup.c
+  condvar.c
+  create.c
+  dll.c
+  autostatic.c
+  errno.c
+  exit.c
+  fork.c
+  global.c
+  misc.c
+  mutex.c
+  nonportable.c
+  private.c
+  rwlock.c
+  sched.c
+  semaphore.c
+  signal.c
+  Generating Code...
+  Compiling...
+  spin.c
+  sync.c
+  tsd.c
+  Generating Code...
+     Creating library H:/lab2/build/thirdparty/libpthreads/Debug/pthreadsVC2d.lib and object H:/lab2/build/thirdparty/libpthreads/Debug/pthreadsVC2d.exp
+  pthreadsVC2.vcxproj -> H:\lab2\build\thirdparty\libpthreads\Debug\pthreadsVC2d.dll
