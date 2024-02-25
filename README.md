@@ -1,4 +1,4 @@
-**Multiagent Reinforcement Learning Using Q-learning Method in CUDA**
+ # <center> Multiagent Reinforcement Learning Using Q-learning Method in CUDA</center>
 
 This is a part of the lab assignment for the course ECE 277 at UCSD for Winter 2024.
 
