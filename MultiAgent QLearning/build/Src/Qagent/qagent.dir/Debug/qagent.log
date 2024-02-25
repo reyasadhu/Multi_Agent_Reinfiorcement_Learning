@@ -1,0 +1,42 @@
+﻿  Building NVCC (Device) object Src/Qagent/CMakeFiles/qagent.dir/Debug/qagent_generated_agent.cu.obj
+  agent.cu
+CUSTOMBUILD : nvcc warning : '--device-debug (-G)' overrides '--generate-line-info (-lineinfo)'
+CUSTOMBUILD : ptxas warning : Conflicting options --device-debug and --generate-line-info specified, ignoring --generate-line-info option
+  ptxas info    : 218048 bytes gmem, 72 bytes cmem[3]
+  ptxas info    : Compiling entry function '_Z17Agent_init_kernelP17curandStateXORWOWPsPb' for 'sm_52'
+  ptxas info    : Function properties for _Z17Agent_init_kernelP17curandStateXORWOWPsPb
+      48 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 54 registers, 344 bytes cmem[0]
+  ptxas info    : Compiling entry function '_Z18Qtable_init_kernelPf' for 'sm_52'
+  ptxas info    : Function properties for _Z18Qtable_init_kernelPf
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 9 registers, 328 bytes cmem[0]
+  ptxas info    : Compiling entry function '_Z19Epsilon_init_kernelPf' for 'sm_52'
+  ptxas info    : Function properties for _Z19Epsilon_init_kernelPf
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 5 registers, 328 bytes cmem[0]
+  ptxas info    : Compiling entry function '_Z25agent_init_episode_kernelPb' for 'sm_52'
+  ptxas info    : Function properties for _Z25agent_init_episode_kernelPb
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 7 registers, 328 bytes cmem[0]
+  ptxas info    : Compiling entry function '_Z21adjust_epsilon_kernelPf' for 'sm_52'
+  ptxas info    : Function properties for _Z21adjust_epsilon_kernelPf
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 9 registers, 328 bytes cmem[0], 12 bytes cmem[2]
+  ptxas info    : Compiling entry function '_Z19agent_action_kernelP4int2PsP17curandStateXORWOWPfS4_Pb' for 'sm_52'
+  ptxas info    : Function properties for _Z19agent_action_kernelP4int2PsP17curandStateXORWOWPfS4_Pb
+      16 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 22 registers, 368 bytes cmem[0]
+  ptxas info    : Compiling entry function '_Z19agent_update_kernelP4int2S0_PfS1_PsPb' for 'sm_52'
+  ptxas info    : Function properties for _Z19agent_update_kernelP4int2S0_PfS1_PsPb
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Used 22 registers, 368 bytes cmem[0], 16 bytes cmem[2]
+  ptxas info    : Function properties for clock
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+  ptxas info    : Function properties for clock32
+      0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+CUSTOMBUILD : nvcc warning : '--device-debug (-G)' overrides '--generate-line-info (-lineinfo)'
+  agent.cu
+  Building NVCC intermediate link file Src/Qagent/CMakeFiles/qagent.dir/Debug/qagent_intermediate_link.obj
+  qagent_generated_agent.cu.obj
+  qagent.vcxproj -> H:\lab3\build\Src\Qagent\Debug\qagent.lib
