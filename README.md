@@ -45,10 +45,21 @@ We use the Epsilon Greedy strategy to choose an action. It is a simple method to
 
 At the start, the epsilon rate is higher, meaning the agent is in exploration mode. While exploring the environment, the epsilon decreases, and agents start to exploit the environment. During exploration, with every iteration, the agent becomes more confident in estimating Q-values.
 
-If{$\text{uniform}(0,1) < \epsilon$}
-    \State $a = \text{uniform}(0, \text{num\_of\_actions})$
-\Else
-    \State $a = \max_{a'} \alpha' Q(S_{n+1}, a')$
+$$Predicted\ class = \ i^{*}(x) = \begin{matrix}
+argmax \\
+i \\
+\end{matrix}P_{Y|X}\left( i \middle| x \right) = \begin{matrix}
+argmax \\
+i \\
+\end{matrix}P_{X|Y}\left( x \middle| i \right)P_{Y}(i)$$
+
+$$ If\ uniform(0,1) < \epsilon $$ 
+$$ a = \uniform(0, num\ of\ actions)$$
+$$else  $$
+$$a = \begin{matrix}
+max \\
+\alpha^{'} \\ \end{matrix}  Q(S_{n+1}, a^{'})$$  
+
 
 In code, we decrease the epsilon by 0.1 at each episode. 
 
@@ -58,7 +69,7 @@ After each action, we use this function to update the Q table.
 
 QSn,An+=αRn+1+γmaxα'QSn+1,a'-QSn,An, Rn+1=0αRn+1-QSn,An, Rn+1≠0
 
-Where, Rn+1 is the reward, Sn+1 is the next state and Sn is the current state. α is the learning rate and γ is a discount factor.
+Where, $R_{n+1}$ is the reward, $S_{n+1}$ is the next state and $S_{n}$ is the current state. $\alpha$ is the learning rate and $\gamma$ is a discount factor.
 
 **Pseudo -Code:**
 
@@ -83,6 +94,7 @@ Repeat for each step of the episode:
 Until S is terminal
 
 **Source Code:**
+'''
 
 int q\_learningCls::learning(int\* board, unsigned int& episode, unsigned int& steps) {
 
@@ -135,6 +147,7 @@ int q\_learningCls::learning(int\* board, unsigned int& episode, unsigned int& s
 `    `return m\_newepisode;
 
 }
+'''
 
 
 
